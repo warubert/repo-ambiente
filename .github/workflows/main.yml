@@ -18,7 +18,7 @@ jobs:
         needs: [deploy-fake-homolog]
         steps:
             - name: Fake de teste em ambiente
-              run: echo "Teste no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
+              run: ech "Teste no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
     deploy-fake-producao:
         runs-on: ubuntu-latest
         environment: 
