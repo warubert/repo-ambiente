@@ -4,20 +4,26 @@ on:
 jobs:
     deploy-fake-homolog:
         runs-on: ubuntu-latest
-        environment: homologacao
+        environment: 
+            name: homologacao
+            url: "http://homologacao.devopspro.com.br"
         steps:
             - name: Fake de deploy em ambiente
               run: echo "Deploy no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
     teste-fake:
         runs-on: ubuntu-latest
-        environment: homologacao
+        environment: 
+            name: homologacao
+            url: "http://homologacao.devopspro.com.br"
         needs: [deploy-fake-homolog]
         steps:
             - name: Fake de teste em ambiente
               run: echo "Teste no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
     deploy-fake-producao:
         runs-on: ubuntu-latest
-        environment: producao
+        environment: 
+            name: producao
+            url: "http://producao.devopspro.com.br"
         needs: [teste-fake]
         steps:
             - name: Fake de deploy em ambiente
